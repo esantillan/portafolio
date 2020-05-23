@@ -1,6 +1,6 @@
 <section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
   <!-- loading -->
-  <div align="center" *ngIf="_service.cargando">
+  <div align="center" *ngIf="productosService.cargando">
     <h3>Cargando...</h3>
     <div class="loader loader--style1" title="0">
       <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -25,10 +25,10 @@
 
   
 
-  <div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4"  *ngIf="!_service.cargando">
+  <div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4"  *ngIf="!productosService.cargando">
 
-    <a routerLink="/item/{{ producto.cod }}" class="rk-item ae-masonry__item"
-      *ngFor="let producto of _service.productos_idx; index as i">
+    <a [routerLink]="['/item', producto.cod]" class="rk-item ae-masonry__item"
+      *ngFor="let producto of productosService.productos; index as i">
       <img src="assets/productos/{{ producto.url }}.jpg" alt="" />
       <div class="item-meta">
         <h2>{{ producto.titulo }}</h2>
